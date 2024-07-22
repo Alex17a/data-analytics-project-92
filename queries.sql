@@ -67,10 +67,9 @@ inner join products as p
 group by selling_month
 order by selling_month;
 
-select
-    distinct on (s.customer_id)
-    concat(c.first_name, ' ', c.last_name) as customer,
-    s.sale_date
+select distinct on (s.customer_id)
+    s.sale_date,
+    concat(c.first_name, ' ', c.last_name) as customer
 from sales as s
 inner join customers as c
     on s.customer_id = c.customer_id
